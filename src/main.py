@@ -16,7 +16,7 @@ from src.logics import get_side, quick_copy
 
 # Dictionary containing paths to audio tracks for different game states
 audio_tracks = {
-    "game": "music/1000 Eyes - Ewige Wiederkunft.mp3",
+    "game": "music/Rachmaninoff - Prelude in G minor, op. 23, No. 5.mp3",
     "menu": "music/С. В. Рахманинов - Остров мёртвых.mp3",
 }
 
