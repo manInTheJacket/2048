@@ -262,6 +262,11 @@ class App(Interface):
                     self.draw_victory()
         return False
 
+    # timer checker to stop game
+    def time_check(self):
+        if self.timer <= 0:
+            return False
+        return True
     # Main game loop
     def run(self) -> None:
         try:
@@ -273,11 +278,13 @@ class App(Interface):
                     self.draw_menu()
                     play_music("game")
                 self.draw_main()
-                while self.board.are_there_zeros() and self.board.can_move():
+                while self.board.are_there_zeros() and self.board.can_move() and self.time_check():
                     pg.display.update()
                     if self.handle_events() is True:
                         pg.mixer.music.stop()
                         break
+                    self.update_timer()
+                    self.draw_timer()
                     pg.display.update()
                     self.clock.tick(self.framerate)
                 else:
