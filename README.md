@@ -27,7 +27,7 @@ Clone this repository.
 Run `run.py` using the python interpreter
 
 ## Game Design Document
-<a href= "">Click here to read GDD</a>
+<a href= "Inception to TTFE GDD.pdf">Click here to read GDD</a>
 ## Developers
 
 - [Abdigaliyev A. Zhasulan](https://github.com/manInTheJacket)
