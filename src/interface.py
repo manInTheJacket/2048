@@ -221,6 +221,97 @@ class Interface(Game):
                         self.draw_top_gamers()
                         pressed_button = True
 
+    def show_cutscene_one(self):
+        # Clearing screen.
+        self.screen.fill(pg.Color('black'))
+
+        # Cutscene text.
+        font = pg.font.Font(self.generalFont, 20)
+        texts = [
+            "Boss: You have to infiltrate the TTFE",
+            "and destroy it from the inside. You'll pass the",
+            "entrance part of the interview easily.",
+            "The hard part is the famous '2048' test. You have to",
+            "move blocks of numbers with the arrows 'up', 'down',",
+            "'right' and 'left' to connect the same numbers to",
+            "each other and get their sum. The test is considered",
+            "to be passed if you are able to get 2048. Keep in",
+            "mind that your time is limited. Understand? Do it!",
+            " ",
+            "You: Yes, sir!"
+        ]
+
+        for i, line in enumerate(texts):
+            text_surface = font.render(line, True, pg.Color('white'))
+            self.screen.blit(text_surface, (20, 30 + i * 30))
+
+        # Start button.
+        start_btn = font.render('Start', True, pg.Color('white'))
+        start_btn_rect = start_btn.get_rect(center=(self.screen.get_width() / 2, self.screen.get_height() - 50))
+        self.screen.blit(start_btn, start_btn_rect)
+
+        pg.display.flip()  # Updating
+
+        # Wait for the "Start" button to be pressed
+        waiting_for_input = True
+        while waiting_for_input:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    sys.exit()
+                if event.type == pg.MOUSEBUTTONDOWN:
+                    if start_btn_rect.collidepoint(pg.mouse.get_pos()):
+                        waiting_for_input = False
+
+    def show_cutscene_Two(self):
+        # Clearing screen.
+        self.screen.fill(pg.Color('black'))
+
+        # Cutscene text.
+        font = pg.font.Font(self.generalFont, 20)
+        texts = [
+            "5 days later...",
+            " ",
+            "TTFE director: My recruiter showed me your CV.",
+            "I was impressed. I'm the one who invited you to take",
+            "our test without an entrance interview. You know the",
+            "2048 rules, right? Everyone knows it...",
+            " "
+            "You: Yes, I do.",
+            " ",
+            "TTFE Director: Good! I'll give you",
+            "4 minutes. To keep you entertained, I'm going to",
+            "play my favourite Rachmaninoff prelude on the tape",
+            "recorder. Once you pass the test, we'll discuss your",
+            "salary and other details. ",
+            " ",
+            "You: Deal.",
+            " ",
+            "TTFE Director: Ready?"
+        ]
+
+        for i, line in enumerate(texts):
+            text_surface = font.render(line, True, pg.Color('white'))
+            self.screen.blit(text_surface, (20, 30 + i * 30))
+
+        # Start button.
+        start_btn = font.render('Ready!', True, pg.Color('white'))
+        start_btn_rect = start_btn.get_rect(center=(self.screen.get_width() / 2, self.screen.get_height() - 50))
+        self.screen.blit(start_btn, start_btn_rect)
+
+        pg.display.flip()  # Updating
+
+        # Wait for the "Start" button to be pressed
+        waiting_for_input = True
+        while waiting_for_input:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    sys.exit()
+                if event.type == pg.MOUSEBUTTONDOWN:
+                    if start_btn_rect.collidepoint(pg.mouse.get_pos()):
+                        waiting_for_input = False
+
     # draws victory screen after reaching 2048
     def draw_victory(self) -> None:
         if not self.victory:

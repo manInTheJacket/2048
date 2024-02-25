@@ -19,6 +19,7 @@ audio_tracks = {
     "game": "music/1000 Eyes - Ewige Wiederkunft.mp3",
     "menu": "music/С. В. Рахманинов - Остров мёртвых.mp3",
 }
+
 # Function to play music based on the provided track ID
 def play_music(track_id):
     if track_id in audio_tracks:
@@ -276,6 +277,8 @@ class App(Interface):
                 if self.username is None:
                     play_music("menu")
                     self.draw_menu()
+                    self.show_cutscene_one()
+                    self.show_cutscene_Two()
                     play_music("game")
                 self.draw_main()
                 while self.board.are_there_zeros() and self.board.can_move() and self.time_check():
