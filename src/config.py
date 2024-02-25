@@ -61,4 +61,5 @@ COLORS = {
     2048: "#cb5151",
     "WHITE": "#ebeeff",  # Color for text.
     "GRAY": "#aebad0",  # Color for text.
+    "BLACK": "#000000"
 }

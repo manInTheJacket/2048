@@ -11,7 +11,6 @@ from src.database import get_best, insert_result
 from src.game import Game
 from src.logics import get_const_4_cell, get_size_font
 
-
 class Interface(Game):
     board: GameBoard
 
@@ -189,8 +188,8 @@ class Interface(Game):
 
         font = pg.font.Font(self.generalFont, 45)
         self.screen.blit(
-            pg.font.Font(self.generalFont, 120).render("2048", True, config.COLORS["WHITE"]),
-            (108, 60),
+            pg.font.Font(self.generalFont, 55).render("Inception to TTFE", True, config.COLORS["WHITE"]),
+            (60, 155),
         )
         self.screen.blit(font.render("PLAY", True, config.COLORS["WHITE"]), (210, 270))
         self.screen.blit(font.render("RATING", True, config.COLORS["WHITE"]), (186, 370))
@@ -246,7 +245,7 @@ class Interface(Game):
             self.screen.blit(text_surface, (20, 30 + i * 30))
 
         # Start button.
-        start_btn = font.render('Start', True, pg.Color('white'))
+        start_btn = font.render('>', True, pg.Color('white'))
         start_btn_rect = start_btn.get_rect(center=(self.screen.get_width() / 2, self.screen.get_height() - 50))
         self.screen.blit(start_btn, start_btn_rect)
 
@@ -279,8 +278,8 @@ class Interface(Game):
             " "
             "You: Yes, I do.",
             " ",
-            "TTFE Director: Good! I'll give you",
-            "4 minutes. To keep you entertained, I'm going to",
+            "TTFE Director: Good! I'll give you 4 minutes.",
+            "To keep you entertained, I'm going to",
             "play my favourite Rachmaninoff prelude on the tape",
             "recorder. Once you pass the test, we'll discuss your",
             "salary and other details. ",
