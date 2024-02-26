@@ -21,7 +21,7 @@ class Interface(Game):
         self.size_block = config.SIZE_BLOCK
         self.margin = config.MARGIN
         self.generalFont = config.GENERAL_FONT
-        self.adjustment = lambda x, y: len(str(abs(y))) * 8 if x == 25 else len(str(abs(y))) * 7  # noqa: PLR2004
+        self.adjustment = lambda x, y: len(str(abs(y))) * 8 if x == 25 else len(str(abs(y))) * 7
         self.delta = 0
         self.timer = 241
         self.last_timer_update = pg.time.get_ticks() // 1000  # Initial value for tracking time
@@ -112,7 +112,7 @@ class Interface(Game):
                     True,
                     config.COLORS["WHITE"],
                 )
-                if name.get_width() > 154:  # noqa: PLR2004
+                if name.get_width() > 154:
                     s = player["name"] + ":"
                     self.screen.blit(
                         pg.font.Font(self.generalFont, 28).render(s, True, config.COLORS["WHITE"]),
@@ -124,14 +124,14 @@ class Interface(Game):
                         True,
                         config.COLORS["WHITE"],
                     )
-                    while 289 - name.get_width() + 20 + score_txt.get_width() - 117 > 309:  # noqa: PLR2004
+                    while 289 - name.get_width() + 20 + score_txt.get_width() - 117 > 309:
                         score_txt = pg.font.Font(self.generalFont, size_font).render(
                             str(player["score"]),
                             True,
                             config.COLORS["WHITE"],
                         )
                         size_font -= 2
-                    y = 128 if size_font == 35 else 133  # noqa: PLR2004
+                    y = 128 if size_font == 35 else 133
                     x = (
                             pg.font.Font(self.generalFont, 28)
                             .render(player["name"] + ":", True, config.COLORS["WHITE"])
@@ -147,14 +147,14 @@ class Interface(Game):
                         True,
                         config.COLORS["WHITE"],
                     )
-                    while 289 - name.get_width() + 20 + score_txt.get_width() - 117 > 309:  # noqa: PLR2004
+                    while 289 - name.get_width() + 20 + score_txt.get_width() - 117 > 309:
                         score_txt = pg.font.Font(self.generalFont, size_font).render(
                             str(player["score"]),
                             True,
                             config.COLORS["WHITE"],
                         )
                         size_font -= 2
-                    y = 128 if size_font == 35 else 133  # noqa: PLR2004
+                    y = 128 if size_font == 35 else 133
                     x = name.get_width() + 127
                     direct_x = (406 - x) // 2 - score_txt.get_width() // 2
 
@@ -209,7 +209,7 @@ class Interface(Game):
                     elif event.key == pg.K_RETURN:
                         self.put_name()
                         pressed_button = True
-                    elif event.key == 114:  # noqa: PLR2004
+                    elif event.key == 114:
                         self.draw_top_gamers()
                         pressed_button = True
                 elif event.type == pg.MOUSEBUTTONDOWN:

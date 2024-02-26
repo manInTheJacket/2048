@@ -27,6 +27,7 @@ def play_music(track_id):
         pg.mixer.music.play(-1)
     else:
         print(f"Music with ID '{track_id}' not found.")
+
 # Main game class inheriting from Interface
 class App(Interface):
     board: GameBoard
@@ -109,7 +110,6 @@ class App(Interface):
         path = Path.cwd()
 
         if "save.txt" in os.listdir(path):
-
             with open("save.txt") as file:
                 data = json.load(file)
                 self.board = GameBoard(data["board"])
@@ -118,7 +118,6 @@ class App(Interface):
             full_path = path / Path("save.txt")
             Path(full_path).unlink()
         else:
-
             super().__init__()
             self.board = GameBoard()
             self.move_mouse = False
@@ -268,6 +267,7 @@ class App(Interface):
         if self.timer <= 0:
             return False
         return True
+
     # Main game loop
     def run(self) -> None:
         try:
